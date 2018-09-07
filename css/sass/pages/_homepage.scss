@@ -1,0 +1,469 @@
+body {
+    background-color: $bg-color; /*#006aa2*/
+    background-image: url('../imgs/bg.png');
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    color: $main-color;
+    font-family: $main-font;
+    overflow: hidden;
+}
+body > div{
+    width: 100%;
+}
+
+header {
+    font-size: 16px;
+    width: 100%;
+    @include abs-position(0 , auto, auto, 0);
+    z-index: 9999;
+    .container {
+        overflow: hidden;
+        position: relative;
+        .brand {
+            float: $float-left;
+            text-decoration: none;
+            color: $main-color;
+            font-weight: bold;
+            @include abs-position(15px , auto, auto, 15px);
+            span {
+                color: $seconed-color;
+            }
+            img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        .navigation {
+            float: $float-right;
+            padding: 10px 0;
+            li {
+                display: inline-block;
+                padding: 5px 10px;
+                cursor: pointer;
+                @include prefixer(transition, (.5s));
+                @include prefixer(user-select, (none));
+                border: 1px solid transparent;
+                &:hover{
+                    border: 1px solid $border-color;
+                }
+                &.active{
+                    border: 1px solid $border-color;
+                    color: $seconed-color;
+                    font-weight: bold;
+                }
+                &.hvr-ripple-in:before{
+                    border-color: $border-color;
+                    animation-duration: .5s;
+                }
+            }
+        }
+    }
+}
+
+.bio {
+    overflow-y: auto;
+    @include vertical-center();
+    .my-pic {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        border: 2px solid $border-color;
+        @include prefixer(border-radius, (50%));
+        overflow: hidden;
+        position: relative;
+        &:after {
+            @include abs-position(0, 0, auto, auto);
+            content:"";
+            width: 100%;
+            height: 100%;
+            background: rgba($color: $bg-color, $alpha: .2);
+            z-index: 8;
+        }
+    }
+    .text {
+        margin-bottom: 30px;
+        h1 {
+            color: $white-color;
+            font-weight: bold;
+            font-size: 50px;
+            span {
+                color: $seconed-color;
+            }
+        }
+        p{
+            font-size: 16px;
+        }
+        hr {
+            width: 20%;
+            margin: 15px auto;
+            @include opacity(.4);
+            border-top: 2px solid;
+        }
+    }
+    .buttons {
+        button {
+            background: none;
+            border: 1px solid $border-color;
+            width: 160px;
+            margin: 0 5px 10px;
+            position: relative;
+            overflow: hidden;
+            @include prefixer(transition, (.5s));
+            &:hover {
+                border: 1px solid $main-color;
+                color: $dark-color;
+            }
+            &.hvr-bounce-to-right:before,
+            &.hvr-bounce-to-bottom:before {
+                background: $main-color;
+                border: 1px solid $main-color;
+            }
+            i {
+                padding-right: 8px
+            }
+        }
+    }
+}
+
+.about {
+    padding: 100px 0;
+    overflow-y: auto;
+    height: 100vh;
+    display: none;
+    h2 {
+        position: relative;
+        margin-bottom: 35px;
+        color: $white-color;
+        @extend %heading-border;
+        &::before {
+            content:"\f007";
+        }
+    }
+    P {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    .row {
+        border-left: 1px solid $seconed-color;
+        padding-left: 30px;
+        margin-left: 30px;
+        .about-me {
+            margin-bottom: 50px;
+            padding-left: 10px;
+            cursor: default;
+            @include prefixer(transition, (.5s));
+            &:hover {
+                background: $white-color;
+                color: $dark-color;
+                h3 {
+                    color: $seconed-color;
+                }
+            }
+            h3 {
+                position: relative;
+                color: $white-color;
+                &::before {
+                    font-family: Fontawesome;
+                    @include abs-position(-5px, auto, auto, -59px);
+                    color: $seconed-color;
+                    font-size: 36px;
+                }
+                &.personal-head::before {
+                    content:"\f2be";
+                }
+                &.education-head::before {
+                    content:"\f19d";
+                    left: -63px;
+                }
+                &.skills-head::before {
+                    content:"\f069";
+                    left: -57px;
+                }
+            }
+            h4 {
+                i {
+                    color: $seconed-color;
+                    padding-right: 5px;
+                }
+            }
+            ul {
+                border-left: 1px solid $seconed-color;
+                li {
+                    line-height: 1.7;
+                }
+            }
+        }
+    }
+}
+
+.projects {
+    padding: 100px 0;
+    overflow-y: auto;
+    height: 100vh;
+    position: relative;
+    z-index: 999;
+    display: none;
+    h2 {
+        position: relative;
+        margin-bottom: 35px;
+        color: $white-color;
+        @extend %heading-border;
+        &::before {
+            content:"\f0b1";
+            background-color: #2098D1;
+            color: #FFF;
+            padding: 0px 20px;
+            border-radius: 20px;
+        }
+    }
+    P {
+        font-size: 15px;
+    }
+    ul {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        li {
+            display: inline-block;
+            padding: 5px 13px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            @include prefixer(transition, (.5s));
+            @include prefixer(user-select, (none));
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+            &.active{
+                background: $seconed-color;
+                color: $main-color;
+                @include prefixer(box-shadow, (0 5px 10px rgba($color: $dark-color, $alpha: .2)));
+            }
+        }
+    }
+    .portfolio {
+        .mix {
+            .project {
+                position: relative;
+                margin-bottom: 25px;
+                &::before {
+                    content: '';
+                    @include abs-position(0, auto, auto, 0);
+                    background: rgba($color: $bg-color, $alpha: .2);
+                    z-index: 2;
+                    width: 100%;
+                    height: 100%;
+                    @include prefixer(transition, (.5s));
+                }
+                &:hover::before{
+                    width: 0;
+                    height: 0;
+                    @include abs-position(50%, auto, auto, 50%);
+                }
+                img {
+                    width: 100%;
+                    @include opacity(.8);
+                }
+                .info{
+                    @include abs-position(auto, auto, 0, 0);
+                    width: 100%;
+                    background: $main-color;
+                    padding: 10px 8px 0;
+                    z-index: 3;
+                    @include prefixer(box-shadow, (0 5px 20px rgba($color: $dark-color, $alpha: .3)));
+                    p {
+                        display: inline-block;
+                        float: $float-left;
+                        color: $dark-color;
+                    }
+                    a {
+                        float: $float-right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contact{
+    padding: 100px 0;
+    overflow-y: auto;
+    height: 100vh;
+    display: none;
+    h2 {
+        position: relative;
+        margin-bottom: 35px;
+        color: $white-color;
+        @extend %heading-border;
+        &::before {
+            content:"\f0e0";
+            font-family: Fontawesome;
+            font-size: 18px;
+        }
+    }
+    P {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+    .form-section {
+        form {
+            padding: 30px 0 50px;
+            overflow: hidden;
+            .form-group {
+                position: relative;
+                .form-control{
+                    border: 1px solid $border-color;
+                    background: none;
+                    @include prefixer (border-radius, (0));
+                    @include prefixer(box-shadow, (0 5px 20px rgba($color: $dark-color, $alpha: .2)));
+                    @include prefixer(transition, (.5s));
+                    font-size: 14px;
+                    padding-bottom: 3px;
+                    &:focus {
+                        @extend .input-data;
+                        @include prefixer(transform, scale(1.04));
+                        @include prefixer(transition, (.5s));
+                        padding-bottom: 3px;
+                    }
+                    &:focus + label {
+                        color: $seconed-color;
+                        @include abs-position(0, auto, auto, -5px);
+                        font-size: 11px;
+                    }
+                }
+                label {
+                    @include abs-position(12px, auto, auto, 10px);
+                    @include prefixer(transition, (.3s));
+                    i {
+                        padding-right: 5px;
+                    }
+                }
+                textarea {
+                    resize: none;
+                    height: 166px;
+                    padding: 15px;
+                }
+                button{
+                    background: $seconed-color;
+                    @include prefixer(border-radius, (0));
+                    @include prefixer(box-shadow, (0 5px 20px rgba($color: $dark-color, $alpha: .3)));
+                    &::before{
+                        border-color: $seconed-color;
+                    }
+                    &:hover{
+                        color: $main-color;
+                    }
+                    i {
+                        padding-left: 5px;
+                    }
+                }
+            }
+        }
+        .social-links {
+            a {
+                color: $main-color;
+                text-decoration: none;
+                margin: 10px;
+                @include opacity(.7);
+                &:hover {
+                    @include opacity(1);
+                    color: $seconed-color;
+                }
+                i {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+// Classes To Extend
+// heading Border
+%heading-border{
+    &::before {
+        font-family: fontAwesome;
+        color: $border-color;
+        font-size: 20px;
+        background-color: $seconed-color;
+        color: $white-color;
+        padding: 0px 20px;
+        border-radius: 20px;
+        z-index: 5;
+        @include vertical-center();
+        top: 45px;
+    }
+    &::after {
+        content:"";
+        width: 110px;
+        height: 2px;
+        background: $seconed-color;
+        @include vertical-center();
+        top: 45px;
+    }
+}
+
+// has data
+.label-data label{
+    color: $seconed-color;
+    @include abs-position(2px !important, auto, auto, 5px !important) ;
+    font-size: 11px;
+}
+
+.input-data {
+    background: $main-color !important;
+    color: $dark-color;
+    border: 1px solid $main-color !important;
+}
+
+// Cover
+%cover{
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+// overlay
+%overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: $seconed-color, $alpha: .3);
+    z-index: 0;
+}
+
+// position absolute
+%absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+// justify center
+%jsutify-center{
+    display: flex;
+    justify-content: center;
+}
+
+// Space around
+%space-around{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+// animations
+@include keyframes(bounce-to-right) {
+    0%{
+        left: -150px;
+    }
+    100%{
+        left: 0;
+    }
+}
+

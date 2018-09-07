@@ -1,0 +1,33 @@
+// media qoury
+$maxSmallMobile: "(max-width: 320px)";
+$maxMobile: "(max-width: 768px)";
+$minSmall: "(min-width: 768px)";
+$maxSmall: "(max-width: 991px)";
+$minMedium: "(min-width: 992px)";
+$maxMedium: "(min-width: 1200px)";
+$minLarge: "(min-width : 1200px)";
+
+
+// Colors
+$bg-color: #535F6F;
+$main-color: #EBEBEB;
+$seconed-color: #2098D1;
+$border-color: #2098D1;
+$dark-color: #333333;
+$white-color: #FFF;
+$black-color: #000;
+$social: (facebook: #3b5998, twitter: #00aced, instagram: #517fa4, youtube: #bb0000);
+
+// Floats
+$float-left: left;
+$float-right: right;
+
+// Text-align
+$text-left: left;
+$text-right: right;
+
+// Fonts
+$main-font: 'Cairo', sans-serif;;
+$seconed-font: 'Montserrat Subrayada', sans-serif;
+    
+
